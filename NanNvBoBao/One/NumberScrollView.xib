@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NumberScrollView">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_icon" translatesAutoresizingMaskIntoConstraints="NO" id="bWv-Dp-qDw">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="showNumber_icon" translatesAutoresizingMaskIntoConstraints="NO" id="r7r-KU-v5T">
+                    <rect key="frame" x="100" y="100" width="824" height="568"/>
+                    <color key="backgroundColor" red="0.34773737389999998" green="0.37759738510000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNN-Tn-etX">
+                    <rect key="frame" x="100" y="349" width="824" height="70"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="rWw-Or-Dvl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="0.86464576198630139" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPt-CH-f9B">
+                    <rect key="frame" x="100" y="100" width="824" height="568"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="kPt-CH-f9B" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="100" id="1VE-Vc-IRx"/>
+                <constraint firstItem="bWv-Dp-qDw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2Wp-uQ-g3X"/>
+                <constraint firstItem="bWv-Dp-qDw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3bz-Fk-PnI"/>
+                <constraint firstAttribute="trailing" secondItem="r7r-KU-v5T" secondAttribute="trailing" constant="100" id="5Ct-CM-QWQ"/>
+                <constraint firstAttribute="trailing" secondItem="GNN-Tn-etX" secondAttribute="trailing" constant="100" id="68G-q5-ZKT"/>
+                <constraint firstAttribute="trailing" secondItem="bWv-Dp-qDw" secondAttribute="trailing" id="C8G-Uc-AQp"/>
+                <constraint firstAttribute="trailing" secondItem="kPt-CH-f9B" secondAttribute="trailing" constant="100" id="FR9-Mg-mvc"/>
+                <constraint firstItem="GNN-Tn-etX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FZF-S4-ku7"/>
+                <constraint firstItem="kPt-CH-f9B" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="100" id="HLZ-UA-vQl"/>
+                <constraint firstItem="r7r-KU-v5T" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="100" id="OiR-2H-p7Y"/>
+                <constraint firstItem="GNN-Tn-etX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="100" id="abr-e0-j7m"/>
+                <constraint firstAttribute="bottom" secondItem="bWv-Dp-qDw" secondAttribute="bottom" id="ctf-tU-4Kw"/>
+                <constraint firstAttribute="bottom" secondItem="r7r-KU-v5T" secondAttribute="bottom" constant="100" id="rKg-Ax-EWf"/>
+                <constraint firstItem="r7r-KU-v5T" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="100" id="sJQ-uV-kzD"/>
+                <constraint firstAttribute="bottom" secondItem="kPt-CH-f9B" secondAttribute="bottom" constant="100" id="uF3-nR-9jO"/>
+            </constraints>
+            <connections>
+                <outlet property="bgView" destination="kPt-CH-f9B" id="fhb-st-s83"/>
+                <outlet property="startLocation" destination="GNN-Tn-etX" id="Qdr-QG-v59"/>
+                <outlet property="twoImageView" destination="r7r-KU-v5T" id="msX-lc-Rtm"/>
+            </connections>
+            <point key="canvasLocation" x="19.921875" y="41.40625"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg_icon" width="2737" height="2048"/>
+        <image name="showNumber_icon" width="2326" height="1206"/>
+    </resources>
+</document>

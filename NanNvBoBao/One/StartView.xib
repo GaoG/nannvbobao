@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="StartView">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_icon" translatesAutoresizingMaskIntoConstraints="NO" id="XzR-y6-2lO">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                    <color key="backgroundColor" red="0.34773737389428883" green="0.37759738509390817" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="XzR-y6-2lO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2Qn-zR-mWY"/>
+                <constraint firstAttribute="trailing" secondItem="XzR-y6-2lO" secondAttribute="trailing" id="UgP-uN-898"/>
+                <constraint firstItem="XzR-y6-2lO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ulq-Md-h9v"/>
+                <constraint firstAttribute="bottom" secondItem="XzR-y6-2lO" secondAttribute="bottom" id="pA4-1L-eBD"/>
+            </constraints>
+            <connections>
+                <outlet property="bgImageView" destination="XzR-y6-2lO" id="U1N-Tq-jo4"/>
+            </connections>
+            <point key="canvasLocation" x="138.8671875" y="135.9375"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="logo_icon" width="2737" height="2048"/>
+    </resources>
+</document>
