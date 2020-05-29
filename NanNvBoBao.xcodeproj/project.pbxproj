@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		210D5297247A4B6200B3A7EA /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 210D5296247A4B6200B3A7EA /* ThirdViewController.m */; };
 		210D52EB247AC24700B3A7EA /* WebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 210D52EA247AC24700B3A7EA /* WebSocketManager.m */; };
+		2119EA72247F81290077FE7A /* WebSocketManagerA.m in Sources */ = {isa = PBXBuildFile; fileRef = 2119EA71247F81290077FE7A /* WebSocketManagerA.m */; };
 		217A173224790EAB005D49A4 /* NumberScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 217A173124790EAB005D49A4 /* NumberScrollView.m */; };
 		217A173424790EC1005D49A4 /* NumberScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 217A173324790EC1005D49A4 /* NumberScrollView.xib */; };
 		217A1737247910DC005D49A4 /* UILabel+WordSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = 217A1736247910DC005D49A4 /* UILabel+WordSpacing.m */; };
@@ -49,6 +50,8 @@
 		210D5296247A4B6200B3A7EA /* ThirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		210D52E9247AC24700B3A7EA /* WebSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocketManager.h; sourceTree = "<group>"; };
 		210D52EA247AC24700B3A7EA /* WebSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocketManager.m; sourceTree = "<group>"; };
+		2119EA70247F81290077FE7A /* WebSocketManagerA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocketManagerA.h; sourceTree = "<group>"; };
+		2119EA71247F81290077FE7A /* WebSocketManagerA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocketManagerA.m; sourceTree = "<group>"; };
 		217A173024790EAB005D49A4 /* NumberScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NumberScrollView.h; sourceTree = "<group>"; };
 		217A173124790EAB005D49A4 /* NumberScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NumberScrollView.m; sourceTree = "<group>"; };
 		217A173324790EC1005D49A4 /* NumberScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumberScrollView.xib; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 				21B963F824781919008B246B /* AppDelegate.m */,
 				210D52E9247AC24700B3A7EA /* WebSocketManager.h */,
 				210D52EA247AC24700B3A7EA /* WebSocketManager.m */,
+				2119EA70247F81290077FE7A /* WebSocketManagerA.h */,
+				2119EA71247F81290077FE7A /* WebSocketManagerA.m */,
 				217A174B2479D657005D49A4 /* Common */,
 				217A173F247928D6005D49A4 /* One */,
 				217A1740247928E8005D49A4 /* Second */,
@@ -392,6 +397,7 @@
 			files = (
 				217A17492479D435005D49A4 /* NSMutableArray+ErrorHandle.m in Sources */,
 				21B963FC24781919008B246B /* ViewController.m in Sources */,
+				2119EA72247F81290077FE7A /* WebSocketManagerA.m in Sources */,
 				217A173E247928CE005D49A4 /* SecondViewController.m in Sources */,
 				217A1737247910DC005D49A4 /* UILabel+WordSpacing.m in Sources */,
 				218A0F13247C1AE9001646A5 /* GCDAsyncUdpSocket.m in Sources */,
@@ -554,15 +560,17 @@
 			baseConfigurationReference = EC86B6A72729D152416BB323 /* Pods-NanNvBoBao.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ATX6SQ3HRM;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 96E5N4445H;
 				INFOPLIST_FILE = NanNvBoBao/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = text.com.NanNvBoBao;
+				PRODUCT_BUNDLE_IDENTIFIER = test.com.NanNvBoBao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = adHoc;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -572,15 +580,16 @@
 			baseConfigurationReference = D6B98E845535B44AC972FF83 /* Pods-NanNvBoBao.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ATX6SQ3HRM;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 96E5N4445H;
 				INFOPLIST_FILE = NanNvBoBao/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = text.com.NanNvBoBao;
+				PRODUCT_BUNDLE_IDENTIFIER = test.com.NanNvBoBao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = test;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;

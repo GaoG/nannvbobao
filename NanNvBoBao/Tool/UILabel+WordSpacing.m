@@ -1,6 +1,6 @@
 //
 //  UILabel+WordSpacing.m
-//  NanNvBoBao
+//  Sum
 //
 //  Created by  GaoGao on 2020/5/23.
 //  Copyright © 2020年  GaoGao. All rights reserved.
@@ -25,9 +25,9 @@
     NSMutableAttributedString * attributedString =     [[NSMutableAttributedString alloc] initWithString:text attributes:dic];
     
     for (NSString *str in keywords) {
-        if ([text rangeOfString:str].location!=NSNotFound) {
-            [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:[text rangeOfString:str]];
-        }
+        //        if ([text rangeOfString:str].location!=NSNotFound) {
+        [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange([str integerValue], 1)];
+        //        }
     }
     
     [self setAttributedText:attributedString];
@@ -48,7 +48,7 @@
         spacing = 30.0;
         
     }
-        
+    
     //设置字间距
     NSDictionary *dic = @{
                           NSKernAttributeName:@(spacing)

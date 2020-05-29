@@ -1,15 +1,15 @@
 //
-//  WebSocketManager.m
+//  WebSocketManagerAA.m
 //  iosWebSocket
 //
-//  Created by yanglele on 2019/5/30.
-//  Copyright © 2019 yanglele. All rights reserved.
+//  Created by 郑士峰 on 2020/5/27.
+//  Copyright © 2020 yanglele. All rights reserved.
 //
 
-#import "WebSocketManager.h"
+#import "WebSocketManagerA.h"
 #import "AFNetworking.h"
 
-#define dispatch_main_async_safe(block)\
+#define dispatch_main_async_safeA(block)\
 if ([NSThread isMainThread]) {\
 block();\
 } else {\
@@ -18,11 +18,9 @@ dispatch_async(dispatch_get_main_queue(), block);\
 
 
 // 只需要替换  192.168.1.3 这个IP为自己电脑的ip就ok了
-//NSString * const IPDIZHI = @"http://192.168.1.3:14500/gdqh";
+NSString * const IPDIZHIA = @"http://192.168.1.3:4000";
 
-NSString * const IPDIZHI = @"http://192.168.1.4:14500/gdqh";
-
-@interface WebSocketManager ()<SRWebSocketDelegate>
+@interface WebSocketManagerA ()<SRWebSocketDelegate>
 
 @property(nonatomic, strong) NSTimer *headerBeatTimer; //心跳定时器
 @property(nonatomic, strong) NSTimer *networkTestingTimer; //没有网络的时候检测定时器
@@ -33,13 +31,13 @@ NSString * const IPDIZHI = @"http://192.168.1.4:14500/gdqh";
 @end
 
 
-@implementation WebSocketManager
+@implementation WebSocketManagerA
 
 +(instancetype)shared{
-    static WebSocketManager *__instance = nil;
+    static WebSocketManagerA *__instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        __instance = [[WebSocketManager alloc] init];
+        __instance = [[WebSocketManagerA alloc] init];
     });
     return __instance;
 }
@@ -60,29 +58,32 @@ NSString * const IPDIZHI = @"http://192.168.1.4:14500/gdqh";
         return;
     }
     
-    self.webScoket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:IPDIZHI]];
-    self.webScoket.delegate = self;
-    [self.webScoket open];
+    [self testConnectServerWithIp:self.myIP withdeviceID:self.myID];
+//    self.webScoket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:IPDIZHIA]];
+//    self.webScoket.delegate = self;
+//    [self.webScoket open];
 }
-
 
 
 
 ///建立长连接 ip
 -(void)testConnectServerWithIp:(NSString *)ip withdeviceID:(NSString *)ID;
 {
+    self.myIP = ip;
+    self.myID = ID;
     
     if(self.webScoket){
-        return;
+        [self.webScoket close];
+        self.webScoket = nil;
+        
     }
-    self.webScoket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@:4000",ip]]];
+//    self.webScoket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@:14500/gdqh",ip]]];
+        self.webScoket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@:4000",ip]]];
     self.webScoket.delegate = self;
     [self.webScoket open];
     
-
+    
 }
-
-
 
 
 
@@ -99,7 +100,7 @@ NSString * const IPDIZHI = @"http://192.168.1.4:14500/gdqh";
 -(void)webSocketClose{
     self.isActiveClose = YES;
     self.isConnect = NO;
-    self.socketStatus = WebSocketStatusDefault;
+    self.socketStatus = WebSocketStatusADefault;
     
     if (self.webScoket) {
         [self.webScoket close];
@@ -114,22 +115,17 @@ NSString * const IPDIZHI = @"http://192.168.1.4:14500/gdqh";
 #pragma mark socket delegate
 //已经连接
 -(void)webSocketDidOpen:(SRWebSocket *)webSocket{
-    NSLog(@"已经连接,开启心跳");
+    NSLog(@"已经连接,开启心跳----男女播报");
 //    self.isConnect = YES;
-    self.socketStatus = WebSocketStatusConnect;
+    self.socketStatus = WebSocketStatusAConnect;
 //    [self initHeartBeat];//开始心跳
-    
-    if (self.delegate && [self.delegate respondsToSelector:@selector(webSocketDidConnect:)]) {
-        [self.delegate webSocketDidConnect:YES];
-    }
-    
 }
 
 //连接失败
 -(void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error{
     NSLog(@"连接失败");
     self.isConnect = NO;
-    self.socketStatus = WebSocketStatusDisConnect;
+    self.socketStatus = WebSocketStatusADisConnect;
     NSLog(@"连接失败，这里可以实现掉线自动重连，要注意以下几点");
     NSLog(@"1.判断当前网络环境，如果断网了就不要连了，等待网络到来，在发起重连");
     NSLog(@"2.判断调用层是否需要连接，不需要的时候不k连接，浪费流量");
@@ -147,8 +143,8 @@ NSString * const IPDIZHI = @"http://192.168.1.4:14500/gdqh";
 //接收消息
 -(void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message{
     NSLog(@"接收消息 ---- %@", message);
-    if (self.delegate && [self.delegate respondsToSelector:@selector(webSocketDidReceiveMessage:)]) {
-        [self.delegate webSocketDidReceiveMessage:message];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(webSocketDidReceiveMessageA:)]) {
+        [self.delegate webSocketDidReceiveMessageA:message];
     }
 }
 
@@ -156,10 +152,10 @@ NSString * const IPDIZHI = @"http://192.168.1.4:14500/gdqh";
 -(void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean{
     self.isConnect = NO;
     if (self.isActiveClose) {
-        self.socketStatus = WebSocketStatusDefault;
+        self.socketStatus = WebSocketStatusADefault;
         return;
     }else{
-        self.socketStatus = WebSocketStatusDisConnect;
+        self.socketStatus = WebSocketStatusADisConnect;
     }
     NSLog(@"被关闭连接，code:%ld,reason:%@,wasClean:%d",code,reason,wasClean);
     
@@ -193,7 +189,7 @@ NSString * const IPDIZHI = @"http://192.168.1.4:14500/gdqh";
         return;
     }
     [self destoryHeartBeat];
-    dispatch_main_async_safe(^{
+    dispatch_main_async_safeA(^{
         self.headerBeatTimer = [NSTimer timerWithTimeInterval:10 target:self selector:@selector(senderheartBeat) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:self.headerBeatTimer forMode:NSRunLoopCommonModes];
     });
@@ -232,7 +228,7 @@ NSString * const IPDIZHI = @"http://192.168.1.4:14500/gdqh";
     NSLog(@"senderheartBeat");
     //和服务端约定好发送什么作为心跳标识，尽可能的减小心跳包大小
     __weak typeof (self) ws = self;
-    dispatch_main_async_safe(^{
+    dispatch_main_async_safeA(^{
         if (ws.webScoket.readyState == SR_OPEN) {
             [ws sendPing:nil];
         }else if (ws.webScoket.readyState == SR_CONNECTING){
@@ -250,7 +246,7 @@ NSString * const IPDIZHI = @"http://192.168.1.4:14500/gdqh";
 //取消心跳
 -(void)destoryHeartBeat{
     __weak typeof(self) ws = self;
-    dispatch_main_async_safe(^{
+    dispatch_main_async_safeA(^{
         if (ws.headerBeatTimer) {
             [ws.headerBeatTimer invalidate];
             ws.headerBeatTimer = nil;
@@ -261,7 +257,7 @@ NSString * const IPDIZHI = @"http://192.168.1.4:14500/gdqh";
 //没有网络的时候开始定时 -- 用于网络检测
 -(void)noNetWorkStartTestingTimer{
     __weak typeof(self)ws = self;
-    dispatch_main_async_safe(^{
+    dispatch_main_async_safeA(^{
         ws.networkTestingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(noNetWorkStartTesting) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:ws.networkTestingTimer forMode:NSDefaultRunLoopMode];
     });
@@ -279,7 +275,7 @@ NSString * const IPDIZHI = @"http://192.168.1.4:14500/gdqh";
 //取消网络检测
 -(void)destoryNetWorkStartTesting{
     __weak typeof(self) ws = self;
-    dispatch_main_async_safe(^{
+    dispatch_main_async_safeA(^{
         if (ws.networkTestingTimer) {
             [ws.networkTestingTimer invalidate];
             ws.networkTestingTimer = nil;
@@ -287,13 +283,12 @@ NSString * const IPDIZHI = @"http://192.168.1.4:14500/gdqh";
     });
 }
 
--(void)sendDataToServerWithMessageType:(NSString *)messageType data:(NSDictionary *)data{
-    
+-(void)sendDataToServerWithMessageType:(NSString *)messageType data:(NSDictionary *)data
+{
 //    NSString * dataString = [self convertToJsonData:data];
-//    NSDictionary * messageDic = @{@"messageType":@([messageType intValue]) ,@"dataLength":[NSString stringWithFormat:@"%lu",(unsigned long)dataString.length],@"data":dataString};
-    
+//    NSDictionary * messageDic = @{@"messageType":messageType,@"dataLength":[NSString stringWithFormat:@"%lu",(unsigned long)dataString.length],@"data":dataString};
+//    [self sendDataToServer:[self convertToJsonData:messageDic]];
     [self sendDataToServer:[self convertToJsonData:data]];
-    
 }
 
 //发送数据给服务器

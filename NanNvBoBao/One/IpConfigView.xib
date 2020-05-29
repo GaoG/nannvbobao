@@ -37,8 +37,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入观众ipad的ip" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pEO-ty-71M">
-                    <rect key="frame" x="332" y="460" width="360" height="50"/>
+                <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入观众ipad的ip" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pEO-ty-71M">
+                    <rect key="frame" x="332" y="410" width="360" height="50"/>
                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="360" id="D4g-RY-Kf6"/>
@@ -71,7 +71,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekm-zN-OLJ">
-                    <rect key="frame" x="537" y="610" width="150" height="50"/>
+                    <rect key="frame" x="437" y="560" width="150" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="fig-t7-j91"/>
                         <constraint firstAttribute="height" constant="50" id="jcs-oI-X0h"/>
@@ -82,8 +82,8 @@
                         <action selector="testAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ltp-rE-3Ew"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZu-bZ-Xfc">
-                    <rect key="frame" x="337" y="610" width="150" height="50"/>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZu-bZ-Xfc">
+                    <rect key="frame" x="337" y="560" width="150" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="7RD-U4-Xl6"/>
                         <constraint firstAttribute="height" constant="50" id="iWo-XH-hPl"/>
@@ -101,13 +101,13 @@
                 <constraint firstItem="Ilf-oa-I04" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Bst-0i-h1y"/>
                 <constraint firstItem="HxG-uq-xrV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="E9v-h5-sgM"/>
                 <constraint firstItem="QtR-37-rm2" firstAttribute="top" secondItem="FUp-AT-D5I" secondAttribute="bottom" constant="50" id="QEg-NG-Xk9"/>
-                <constraint firstItem="pEO-ty-71M" firstAttribute="top" secondItem="Ilf-oa-I04" secondAttribute="bottom" constant="50" id="ULg-1w-0uL"/>
+                <constraint firstItem="pEO-ty-71M" firstAttribute="top" secondItem="Ilf-oa-I04" secondAttribute="bottom" id="ULg-1w-0uL"/>
                 <constraint firstItem="Ilf-oa-I04" firstAttribute="top" secondItem="HxG-uq-xrV" secondAttribute="bottom" constant="50" id="WEK-B3-nAo"/>
                 <constraint firstItem="pEO-ty-71M" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ljY-bu-DQZ"/>
                 <constraint firstItem="PZu-bZ-Xfc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-100" id="mXd-0s-3fw"/>
                 <constraint firstItem="PZu-bZ-Xfc" firstAttribute="top" secondItem="pEO-ty-71M" secondAttribute="bottom" constant="100" id="mzz-If-gG6"/>
                 <constraint firstItem="QtR-37-rm2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nby-hl-H5K"/>
-                <constraint firstItem="ekm-zN-OLJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="100" id="sKA-WQ-gVW"/>
+                <constraint firstItem="ekm-zN-OLJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sKA-WQ-gVW"/>
                 <constraint firstItem="HxG-uq-xrV" firstAttribute="top" secondItem="QtR-37-rm2" secondAttribute="bottom" constant="50" id="sZS-Nc-uLk"/>
                 <constraint firstItem="FUp-AT-D5I" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="wsy-dd-y7k"/>
                 <constraint firstItem="ekm-zN-OLJ" firstAttribute="top" secondItem="pEO-ty-71M" secondAttribute="bottom" constant="100" id="xAO-2v-uB7"/>

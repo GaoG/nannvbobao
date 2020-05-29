@@ -25,7 +25,7 @@
     
     [super awakeFromNib];
     
-//    [self.NumberL setText:@"123" withWordSpacing:50.0];
+
     
     
     

@@ -39,6 +39,8 @@
 
 @property (nonatomic,strong) NSDateFormatter *dateFormatter;
 
+@property (nonatomic, assign) int time;
+
 @end
 
 @implementation SubmitView
@@ -94,7 +96,12 @@
     sender.enabled = NO;
     
      [self.gcdTimer invalidate];
-    self.submitBlock ? self.submitBlock() : nil;
+    
+    NSTimeInterval timeDieff = [[[NSDate alloc]init]timeIntervalSinceDate:self.startCountDate];
+    
+    self.time =  timeDieff *1000;
+    
+    self.submitBlock ? self.submitBlock(self.time) : nil;
 }
 
 

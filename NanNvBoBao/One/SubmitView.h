@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SubmitView : UIView
 /// 提交
-@property (nonatomic, copy) void (^submitBlock)(void);
+@property (nonatomic, copy) void (^submitBlock)(int time);
 /// 倒计时开始
 -(void)start;
 

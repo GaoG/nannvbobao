@@ -20,6 +20,8 @@ typedef NS_ENUM(NSInteger, WebSocketStatus){
 
 -(void)webSocketDidReceiveMessage:(NSString *)string;
 
+-(void)webSocketDidConnect:(BOOL)state;
+
 @end
 
 

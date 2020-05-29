@@ -38,8 +38,7 @@
 /// 倒计时开始
 -(void)countDownBegin:(NSInteger)tempSecond {
     
-    
-    
+ 
 //    __block NSInteger second = tempSecond == 0 ? 3 :tempSecond ;
     __block NSInteger second = 4;
     //全局队列    默认优先级
@@ -51,7 +50,7 @@
     __weak id weakSelf = self;
     
     //NSEC_PER_SEC是秒，＊1是每秒
-    dispatch_source_set_timer(timer, dispatch_walltime(NULL, 0), NSEC_PER_SEC * 1, 0);
+    dispatch_source_set_timer(timer, dispatch_walltime(NULL, 0), NSEC_PER_SEC * 2, 0);
     //设置响应dispatch源事件的block，在dispatch源指定的队列上运行
     dispatch_source_set_event_handler(timer, ^{
         //回调主线程，在主线程中操作UI
