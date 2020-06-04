@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		210D5297247A4B6200B3A7EA /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 210D5296247A4B6200B3A7EA /* ThirdViewController.m */; };
 		210D52EB247AC24700B3A7EA /* WebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 210D52EA247AC24700B3A7EA /* WebSocketManager.m */; };
+		2110718A248585F400FC52FD /* TipsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21107187248585F400FC52FD /* TipsView.xib */; };
+		2110718B248585F400FC52FD /* TipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21107189248585F400FC52FD /* TipsView.m */; };
 		2119EA72247F81290077FE7A /* WebSocketManagerA.m in Sources */ = {isa = PBXBuildFile; fileRef = 2119EA71247F81290077FE7A /* WebSocketManagerA.m */; };
 		217A173224790EAB005D49A4 /* NumberScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 217A173124790EAB005D49A4 /* NumberScrollView.m */; };
 		217A173424790EC1005D49A4 /* NumberScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 217A173324790EC1005D49A4 /* NumberScrollView.xib */; };
@@ -37,8 +39,6 @@
 		21B964162478B9A0008B246B /* CountDownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B964152478B9A0008B246B /* CountDownView.xib */; };
 		21B964192478BF2A008B246B /* StartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B964182478BF2A008B246B /* StartView.m */; };
 		21B9641B2478BF33008B246B /* StartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B9641A2478BF33008B246B /* StartView.xib */; };
-		21B9641E2478C4AA008B246B /* TipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9641D2478C4AA008B246B /* TipsView.m */; };
-		21B964202478C4B2008B246B /* TipsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B9641F2478C4B2008B246B /* TipsView.xib */; };
 		21B964232478C790008B246B /* SubmitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B964222478C790008B246B /* SubmitView.m */; };
 		21B964252478C79E008B246B /* SubmitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B964242478C79E008B246B /* SubmitView.xib */; };
 		21B964282478CFA7008B246B /* SNTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B964262478CFA7008B246B /* SNTimer.m */; };
@@ -50,6 +50,9 @@
 		210D5296247A4B6200B3A7EA /* ThirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		210D52E9247AC24700B3A7EA /* WebSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocketManager.h; sourceTree = "<group>"; };
 		210D52EA247AC24700B3A7EA /* WebSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocketManager.m; sourceTree = "<group>"; };
+		21107187248585F400FC52FD /* TipsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipsView.xib; sourceTree = "<group>"; };
+		21107188248585F400FC52FD /* TipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsView.h; sourceTree = "<group>"; };
+		21107189248585F400FC52FD /* TipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsView.m; sourceTree = "<group>"; };
 		2119EA70247F81290077FE7A /* WebSocketManagerA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocketManagerA.h; sourceTree = "<group>"; };
 		2119EA71247F81290077FE7A /* WebSocketManagerA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocketManagerA.m; sourceTree = "<group>"; };
 		217A173024790EAB005D49A4 /* NumberScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NumberScrollView.h; sourceTree = "<group>"; };
@@ -98,9 +101,6 @@
 		21B964172478BF2A008B246B /* StartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartView.h; sourceTree = "<group>"; };
 		21B964182478BF2A008B246B /* StartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartView.m; sourceTree = "<group>"; };
 		21B9641A2478BF33008B246B /* StartView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartView.xib; sourceTree = "<group>"; };
-		21B9641C2478C4AA008B246B /* TipsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TipsView.h; sourceTree = "<group>"; };
-		21B9641D2478C4AA008B246B /* TipsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TipsView.m; sourceTree = "<group>"; };
-		21B9641F2478C4B2008B246B /* TipsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TipsView.xib; sourceTree = "<group>"; };
 		21B964212478C790008B246B /* SubmitView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubmitView.h; sourceTree = "<group>"; };
 		21B964222478C790008B246B /* SubmitView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubmitView.m; sourceTree = "<group>"; };
 		21B964242478C79E008B246B /* SubmitView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmitView.xib; sourceTree = "<group>"; };
@@ -144,12 +144,12 @@
 				21B964172478BF2A008B246B /* StartView.h */,
 				21B964182478BF2A008B246B /* StartView.m */,
 				21B9641A2478BF33008B246B /* StartView.xib */,
-				21B9641C2478C4AA008B246B /* TipsView.h */,
-				21B9641D2478C4AA008B246B /* TipsView.m */,
-				21B9641F2478C4B2008B246B /* TipsView.xib */,
 				21B964212478C790008B246B /* SubmitView.h */,
 				21B964222478C790008B246B /* SubmitView.m */,
 				21B964242478C79E008B246B /* SubmitView.xib */,
+				21107188248585F400FC52FD /* TipsView.h */,
+				21107189248585F400FC52FD /* TipsView.m */,
+				21107187248585F400FC52FD /* TipsView.xib */,
 				217A173024790EAB005D49A4 /* NumberScrollView.h */,
 				217A173124790EAB005D49A4 /* NumberScrollView.m */,
 				217A173324790EC1005D49A4 /* NumberScrollView.xib */,
@@ -333,13 +333,13 @@
 			files = (
 				21B964042478191B008B246B /* LaunchScreen.storyboard in Resources */,
 				21B964012478191B008B246B /* Assets.xcassets in Resources */,
-				21B964202478C4B2008B246B /* TipsView.xib in Resources */,
 				21B963FF24781919008B246B /* Main.storyboard in Resources */,
 				21B964112478B082008B246B /* IpConfigView.xib in Resources */,
 				217A17552479D96D005D49A4 /* ShowNumberView.xib in Resources */,
 				21B964162478B9A0008B246B /* CountDownView.xib in Resources */,
 				218A0F12247C1AE9001646A5 /* Documentation.html in Resources */,
 				21B964252478C79E008B246B /* SubmitView.xib in Resources */,
+				2110718A248585F400FC52FD /* TipsView.xib in Resources */,
 				217A17502479D6BA005D49A4 /* ProgressView.xib in Resources */,
 				217A173424790EC1005D49A4 /* NumberScrollView.xib in Resources */,
 				21B9641B2478BF33008B246B /* StartView.xib in Resources */,
@@ -401,7 +401,6 @@
 				217A173E247928CE005D49A4 /* SecondViewController.m in Sources */,
 				217A1737247910DC005D49A4 /* UILabel+WordSpacing.m in Sources */,
 				218A0F13247C1AE9001646A5 /* GCDAsyncUdpSocket.m in Sources */,
-				21B9641E2478C4AA008B246B /* TipsView.m in Sources */,
 				21B964192478BF2A008B246B /* StartView.m in Sources */,
 				217A174E2479D6AB005D49A4 /* ProgressView.m in Sources */,
 				21B964072478191B008B246B /* main.m in Sources */,
@@ -413,6 +412,7 @@
 				21B9640F2478AFF9008B246B /* IpConfigView.m in Sources */,
 				217A173224790EAB005D49A4 /* NumberScrollView.m in Sources */,
 				21B964282478CFA7008B246B /* SNTimer.m in Sources */,
+				2110718B248585F400FC52FD /* TipsView.m in Sources */,
 				21B964232478C790008B246B /* SubmitView.m in Sources */,
 				217A173A2479166F005D49A4 /* UIView+Category.m in Sources */,
 				21B964142478B996008B246B /* CountDownView.m in Sources */,
@@ -560,17 +560,18 @@
 			baseConfigurationReference = EC86B6A72729D152416BB323 /* Pods-NanNvBoBao.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 96E5N4445H;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AGHRV37FJ5;
 				INFOPLIST_FILE = NanNvBoBao/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = test.com.NanNvBoBao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = adHoc;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -580,16 +581,18 @@
 			baseConfigurationReference = D6B98E845535B44AC972FF83 /* Pods-NanNvBoBao.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 96E5N4445H;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AGHRV37FJ5;
 				INFOPLIST_FILE = NanNvBoBao/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = test.com.NanNvBoBao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = test;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;

@@ -19,44 +19,40 @@
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <color key="backgroundColor" red="0.34773737389999998" green="0.37759738510000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="one_begin_tip" translatesAutoresizingMaskIntoConstraints="NO" id="QUK-Vy-P4s">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="one_begin_tips" translatesAutoresizingMaskIntoConstraints="NO" id="QUK-Vy-P4s">
                     <rect key="frame" x="337" y="309" width="350" height="150"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="350" id="2Cs-Xy-PNQ"/>
                         <constraint firstAttribute="height" constant="150" id="Slb-C1-I4s"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3l5-uP-ssn">
-                    <rect key="frame" x="262" y="309" width="500" height="150"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="500" id="JUv-La-9CK"/>
-                        <constraint firstAttribute="height" constant="150" id="Y9m-vv-bWR"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="100"/>
-                    <state key="normal" title="开始">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="answer_finsh" translatesAutoresizingMaskIntoConstraints="NO" id="sCI-45-afb">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Fg4-ap-GYQ" secondAttribute="bottom" id="0pN-Yh-4hT"/>
+                <constraint firstAttribute="bottom" secondItem="sCI-45-afb" secondAttribute="bottom" id="3CU-QH-th2"/>
                 <constraint firstAttribute="trailing" secondItem="Fg4-ap-GYQ" secondAttribute="trailing" id="5SL-xR-wiZ"/>
-                <constraint firstItem="3l5-uP-ssn" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="D47-D3-scE"/>
+                <constraint firstAttribute="trailing" secondItem="sCI-45-afb" secondAttribute="trailing" id="G04-fh-UmF"/>
                 <constraint firstItem="Fg4-ap-GYQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="HlD-hG-ARU"/>
+                <constraint firstItem="sCI-45-afb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="PBE-aE-vJF"/>
                 <constraint firstItem="QUK-Vy-P4s" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Pw9-Vl-qgZ"/>
                 <constraint firstItem="Fg4-ap-GYQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Uio-ly-oZU"/>
-                <constraint firstItem="3l5-uP-ssn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fe0-hE-9ZT"/>
                 <constraint firstItem="QUK-Vy-P4s" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="s1a-GF-772"/>
+                <constraint firstItem="sCI-45-afb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vHt-5q-4bm"/>
             </constraints>
             <connections>
-                <outlet property="tipsLabel" destination="3l5-uP-ssn" id="wo5-qc-CYN"/>
+                <outlet property="answerImage" destination="sCI-45-afb" id="0W7-lb-Nb8"/>
+                <outlet property="tipsImage" destination="QUK-Vy-P4s" id="IhU-pu-C8l"/>
             </connections>
             <point key="canvasLocation" x="138.8671875" y="135.9375"/>
         </view>
     </objects>
     <resources>
+        <image name="answer_finsh" width="2732" height="2048"/>
         <image name="bg_icon" width="2737" height="2048"/>
-        <image name="one_begin_tip" width="16" height="16"/>
+        <image name="one_begin_tips" width="1024" height="404"/>
     </resources>
 </document>

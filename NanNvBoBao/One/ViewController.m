@@ -193,19 +193,42 @@
     NSDictionary *dic = [self dictionaryWithJsonString:string];
     
     NSString *tempID = [NSString stringWithFormat:@"%@",dic[@"id"]];
+///    200 下一轮 判断是否晋级 
     
-    /// /显示开始
-    if ([tempID isEqualToString:@"104"]) {
-
+    /// 首页
+    if ([tempID isEqualToString:@"200"]) {
         
+        [self operateView:self.startView withState:NO];
+        
+        if(!self.isFail){
+            
+            /// 法观众端 观众端
+            [self sendGroupMessage:@"50"];
+        }
+        
+    }else if ([tempID isEqualToString:@"106"]&&!self.isFail) {
+        /// /显示开始
+        [self.tipsView tipsAction:1];
         [self operateView:self.tipsView withState:NO];
         
-    }else if ([tempID isEqualToString:@"105"]){
+    }else if ([tempID isEqualToString:@"105"]&&!self.isFail){
         //点击开始
         [self operateView:self.countDownView withState:NO];
         [self.countDownView countDownBegin:3];
         
-    }else if ([tempID isEqualToString:@"107"]){
+    }else if ([tempID isEqualToString:@"110"]&&!self.isFail){
+        //倒计时 抢答
+        [self operateView:self.submitView withState:NO];
+        [self.submitView start];
+//        [self.countDownView countDownBegin:3];
+        
+    }else if ([tempID isEqualToString:@"108"]){
+        /// 复位
+        [self operateView:self.startView withState:NO];
+        [self sendGroupMessage:@"50"];
+        self.isFail = NO;
+        
+    }else if ([tempID isEqualToString:@"107"]&&!self.isFail){
         /// 结果
         ///result 1正确 0 错误 2晋级
         NSInteger  result = [dic[@"result"] integerValue];
@@ -217,27 +240,31 @@
             return;
         }
         if (result ==1 ) {
-//            tips = @"正确";
-            [self.tipsView.tipsLabel setTitle:@"回答正确" forState:UIControlStateNormal];
-            /// 回到logo页面 晋级失败
-            [self operateView: self.tipsView withState:NO];
-            
-            [self sendGroupMessage:@"40"];
+            //            //            tips = @"正确";
+            //            [self.tipsView answerAction:1];
+            //
+            //            [self operateView: self.tipsView withState:NO];
+            //
+            //            [self sendGroupMessage:@"40"];
+            //            self.isFail = YES;
             
         }else if (result ==0){
-//            tips = @"错误";
+            //            tips = @"错误";
             
-            [self.tipsView.tipsLabel setTitle:@"回答错误" forState:UIControlStateNormal];
+            [self.tipsView answerAction:2];
             [self operateView: self.tipsView withState:NO];
-//            self.isFail = YES;
+            self.isFail = YES;
             [self sendGroupMessage:@"30"];
             
         }else if (result ==2){
-//            tips = @"晋级";
-            [self.tipsView.tipsLabel setTitle:@"晋级成功" forState:UIControlStateNormal];
+            //            tips = @"晋级";
+            
+            [self.tipsView answerAction:1];
             [self operateView: self.tipsView withState:NO];
-             [self sendGroupMessage:@"20"];
+            self.isFail = YES;
+            [self sendGroupMessage:@"20"];
         }
+        
    
     }
     
@@ -249,97 +276,7 @@
     
     return;
     
-    if ([string isEqualToString:@"Success"]) {
-        UIAlertView *al = [[UIAlertView alloc]initWithTitle:string message:string delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [al show];
-    }else{
-        
-        NSDictionary *result = [self dictionaryWithJsonString:string];
-        NSDictionary *dataDic = result[@"data"];
-        /// ProgramStart logo页 RollQuestion // 321 倒计时 数字滚动页
-        // StartAnswer 开始提示页面
-        NSString *stepName = dataDic[@"stepName"];
-        
-        
-        if ([result [@"messageType"]intValue ] == 255) {
-            /// 登陆成功
-            UIAlertView *al = [[UIAlertView alloc]initWithTitle:@"提示" message:string delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [al show];
-            [self operateView:self.startView withState:NO];
-            
-        } else if ([result [@"messageType"]intValue ] == 16 &&[stepName isEqualToString:@"ProgramStart"]){
-            /// 首页
-            [self operateView:self.startView withState:NO];
-            
-        }else if ([result [@"messageType"]intValue ] == 33){
-            [self.webSocketManager sendDataToServerWithMessageType:@"255" data:@{@"code":@(16),@"message":@"block"}];
-            
-            
-            if (self.isFail) {
-                return;
-            }
-            
-            /// 数字滚动
-            NSDictionary *dataDic = result[@"data"];
-            self.time = [dataDic[@"rollTimeSpan"] floatValue];
-            self.space = [dataDic[@"waitTimeSpan"] floatValue];
-            
-            dataDic ? [self setRecollNumber:dataDic] :nil;
-            
-            
-            
-            
-        }else if ([result [@"messageType"]intValue ] == 16 &&[stepName isEqualToString:@"StartAnswer"] ){
-            // 开始页面tips
-            
-            //            [self operateView:self.countDownView withState:NO];
-            //                        [self.countDownView countDownBegin:3];
-            [self.webSocketManager sendDataToServerWithMessageType:@"255" data:@{@"code":@(16),@"message":@"scrollStart"}];
-            [self operateView: self.tipsView withState:NO];
-            self.tipsView.tipsLabel.titleLabel.text =@"开始";
-            
-            
-        }else if ([result [@"messageType"]intValue ] == 16 &&[stepName isEqualToString:@"RollQuestion"] ){
-            
-            /// 开始倒计时  倒计时结束到 数字滚动页面
-            [self operateView:self.countDownView withState:NO];
-            [self.countDownView countDownBegin:3];
-            
-        }else if ([result [@"messageType"]intValue ] == 32 &&[dataDic[@"message"]isEqualToString:@"晋级成功"] ){
-            /// 回到logo页面 晋级成功
-            [self.tipsView.tipsLabel setTitle:@"晋级成功" forState:UIControlStateNormal];
-            [self operateView: self.tipsView withState:NO];
-            
-            
-            [self sendGroupMessage:@"20"];
-            
-            
-        }else if ([result [@"messageType"]intValue ] == 32 &&[dataDic[@"message"]isEqualToString:@"晋级失败"] ){
-            /// 回到logo页面 晋级失败
-            [self.tipsView.tipsLabel setTitle:@"晋级失败" forState:UIControlStateNormal];
-            [self operateView: self.tipsView withState:NO];
-            self.isFail = YES;
-            
-            [self sendGroupMessage:@"30"];
-            
-        }else if ([result [@"messageType"]intValue ] == 32 &&[dataDic[@"message"]isEqualToString:@"回答错误"] ){
-            [self.tipsView.tipsLabel setTitle:@"回答错误" forState:UIControlStateNormal];
-            /// 回到logo页面 晋级失败
-            [self operateView: self.tipsView withState:NO];
-            
-            self.isFail = YES;
-            
-        }
-        
-        
-        
-        
-        
-        
-        
-    }
-    
-    
+   
     
 }
 
@@ -386,9 +323,6 @@
 
 
 
-//-(void)sendAnswer:
-
-
 
 
 -(IpConfigView *)configView {
@@ -430,8 +364,8 @@
         @weakify(self)
         _countDownView.endBlock = ^{
             @strongify(self)
-            [self operateView:self.submitView withState:NO];
-            [self.submitView start];
+            [self operateView:self.startView withState:NO];
+//            [self.submitView start];
             
 //            [self operateView:self.numberScrollView withState:NO];
 //            [self.numberScrollView scrollWithSpace:self.space andAnmintTime:self.time];
@@ -462,7 +396,7 @@
     if (!_submitView) {
         _submitView = [[[NSBundle mainBundle]loadNibNamed:@"SubmitView" owner:nil options:nil]lastObject];
         @weakify(self)
-        _submitView.submitBlock = ^(int time) {
+        _submitView.submitBlock = ^(NSInteger time) {
             @strongify(self)
             [self sendGroupMessage:@"10"];
             time = time <=0 ? 1:time;
