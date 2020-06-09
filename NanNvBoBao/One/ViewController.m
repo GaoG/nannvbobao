@@ -250,9 +250,9 @@
             
         }else if (result ==0){
             //            tips = @"错误";
-            
-            [self.tipsView answerAction:2];
-            [self operateView: self.tipsView withState:NO];
+            [self operateView:self.startView withState:NO];
+//            [self.tipsView answerAction:2];
+//            [self operateView: self.tipsView withState:NO];
             self.isFail = YES;
             [self sendGroupMessage:@"30"];
             
